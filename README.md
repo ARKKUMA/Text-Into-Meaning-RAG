@@ -1,58 +1,66 @@
-# Directory Structure
+# Text-Into-Meaning-RAG
 
+A lightweight, efficient Retrieval-Augmented Generation (RAG) framework baseline, currently configured for culinary domain question answering.
+
+## Key Features
+
+- **Dynamic Hardware Detection**: Zero-configuration required. The system automatically detects and routes execution to **NVIDIA GPU (CUDA)**, **Apple Silicon (MPS)**, or gracefully falls back to **CPU**, ensuring seamless cross-platform compatibility.
+- **Local Embedding & Vector Search**: Utilizes `sentence-transformers` and `FAISS` for fast, offline similarity search.
+- **Open-Source LLM Integration**: Powered by `Qwen/Qwen2.5-0.5B-Instruct` for precise answer generation.
+- **End-to-End Pipeline**: Includes complete scripts for indexing, inference, and exact-match/F1 token evaluation.
+
+## Directory Structure
+
+```text
 rag_baseline/
 ├── data/
-│   ├── corpus.jsonl
-│   ├── benchmark.json
-│   └── test_queries.json
-├── index_store/
-├── outputs/
-├── config.py
-├── utils.py
-├── build_index.py
-├── run_inference.py
-├── run_evaluation.py
-├── requirements.txt
+│   ├── corpus.jsonl               # Background knowledge corpus
+│   ├── benchmark.json             # Labelled benchmark for evaluation
+│   └── test_queries.json          # Inference input questions
+├── index_store/                   # Generated FAISS vector index (auto-created)
+├── outputs/                       # Generated answers and eval metrics (auto-created)
+├── config.py                      # Centralized configuration & hardware routing
+├── utils.py                       # Helper functions and metric calculations
+├── install.py                     # Environment setup and dependency installation script
+├── build_index.py                 # Script to chunk and embed the corpus
+├── inference.py                   # Script to run RAG generation
+├── evaluation.py                  # Script to score model outputs
+├── requirements.txt               # Project dependencies
 └── README.md
-
-
-
-# RAG Baseline
-
-## 1. Install
-
-```bash
-pip install -r requirements.txt
 ```
 
-## 2. Build index
+## Environment Setup
 
-python build_index.py
-
-## 3. Run inference
-
-<pre class="overflow-visible! px-0!" data-start="12949" data-end="12984"><div class="relative w-full mt-4 mb-1"><div class=""><div class="relative"><div class="h-full min-h-0 min-w-0"><div class="h-full min-h-0 min-w-0"><div class="border border-token-border-light border-radius-3xl corner-superellipse/1.1 rounded-3xl"><div class="h-full w-full border-radius-3xl bg-token-bg-elevated-secondary corner-superellipse/1.1 overflow-clip rounded-3xl lxnfua_clipPathFallback"><div class="pointer-events-none absolute inset-x-4 top-12 bottom-4"><div class="pointer-events-none sticky z-40 shrink-0 z-1!"><div class="sticky bg-token-border-light"></div></div></div><div class=""><div class="relative z-0 flex max-w-full"><div id="code-block-viewer" dir="ltr" class="q9tKkq_viewer cm-editor z-10 light:cm-light dark:cm-light flex h-full w-full flex-col items-stretch ͼd ͼr"><div class="cm-scroller"><div class="cm-content q9tKkq_readonly"><span>python run_inference.py</span></div></div></div></div></div></div></div></div></div><div class=""><div class=""></div></div></div></div></div></pre>
-
-## 4. Run evaluation
-
-<pre class="overflow-visible! px-0!" data-start="13007" data-end="13043"><div class="relative w-full mt-4 mb-1"><div class=""><div class="relative"><div class="h-full min-h-0 min-w-0"><div class="h-full min-h-0 min-w-0"><div class="border border-token-border-light border-radius-3xl corner-superellipse/1.1 rounded-3xl"><div class="h-full w-full border-radius-3xl bg-token-bg-elevated-secondary corner-superellipse/1.1 overflow-clip rounded-3xl lxnfua_clipPathFallback"><div class="pointer-events-none absolute inset-x-4 top-12 bottom-4"><div class="pointer-events-none sticky z-40 shrink-0 z-1!"><div class="sticky bg-token-border-light"></div></div></div><div class=""><div class="relative z-0 flex max-w-full"><div id="code-block-viewer" dir="ltr" class="q9tKkq_viewer cm-editor z-10 light:cm-light dark:cm-light flex h-full w-full flex-col items-stretch ͼd ͼr"><div class="cm-scroller"><div class="cm-content q9tKkq_readonly"><span>python run_evaluation.py</span></div></div></div></div></div></div></div></div></div><div class=""><div class=""></div></div></div></div></div></pre>
-
-## Files
-
-* `data/corpus.jsonl`: background corpus
-* `data/benchmark.json`: labelled benchmark for evaluation
-* `data/test_queries.json`: inference input
-* `outputs/inference_output.json`: inference outputs
-* `outputs/evaluation_results.json`: evaluation results
-
-
-# 怎么跑
-
-按顺序执行：
+You only need to run this once. The script will automatically detect your hardware (CUDA/MPS/CPU) and install the correct dependencies.
 
 ```bash
-pip install -r requirements.txt
+python install.py
+```
+
+## Quick Start
+
+Before running the pipeline, ensure your background text is in `data/corpus.jsonl` and your test questions are in `data/test_queries.json` and `data/benchmark.json`.
+
+### 1. Build the Vector Index
+This will parse the corpus, chunk the text, generate embeddings, and save the FAISS index to `index_store/`.
+```bash
 python build_index.py
+```
+
+### 2. Run Inference
+The system will automatically utilize available hardware resources to retrieve context and generate answers.
+```bash
 python inference.py
+```
+Outputs will be saved to `outputs/inference_output.json`.
+
+### 3. Evaluate Performance
+Compare generated answers against the gold standard to calculate Exact Match and Token F1 scores.
+```bash
 python evaluation.py
 ```
+Metrics will be saved to `outputs/evaluation_results.json`.
+
+## Configuration
+
+All major parameters (chunk size, model selection, generation temperature, etc.) can be easily adjusted in `config.py`.
