@@ -1,4 +1,122 @@
 [
-  {"id": "t1", "query": "What is risotto?"},
-  {"id": "t2", "query": "Where does paella come from?"}
+  {
+    "id": "1",
+    "query": "What are the eight major culinary traditions of Chinese cuisine?"
+  },
+  {
+    "id": "2",
+    "query": "Which Chinese regional cuisine is most famous for its 'málà' flavor profile?"
+  },
+  {
+    "id": "3",
+    "query": "What specific ingredient creates the numbing sensation characteristic of Sichuan cuisine?"
+  },
+  {
+    "id": "4",
+    "query": "What are the fundamental ingredients used to make traditional Japanese dashi (soup stock)?"
+  },
+  {
+    "id": "5",
+    "query": "In Japanese culinary tradition, what is 'Kaiseki'?"
+  },
+  {
+    "id": "6",
+    "query": "What is the primary staple grain consumed in Korean cuisine?"
+  },
+  {
+    "id": "7",
+    "query": "What are 'banchan' in the context of a Korean meal?"
+  },
+  {
+    "id": "8",
+    "query": "What is the main composition of traditional Mongolian cuisine due to its extreme continental climate?"
+  },
+  {
+    "id": "9",
+    "query": "What is Khorkhog?"
+  },
+  {
+    "id": "10",
+    "query": "In Taiwanese cuisine, what specific type of starch is used to make the 'bubbles' or 'boba' in bubble tea?"
+  },
+  {
+    "id": "11",
+    "query": "What is a defining characteristic of Hakka cuisine?"
+  },
+  {
+    "id": "12",
+    "query": "How is Dim Sum traditionally served and consumed?"
+  },
+  {
+    "id": "13",
+    "query": "What does 'Char siu' refer to in Cantonese cooking?"
+  },
+  {
+    "id": "14",
+    "query": "What is Awamori and where does it originate?"
+  },
+  {
+    "id": "15",
+    "query": "How does Okinawan cuisine significantly differ from mainland Japanese cuisine?"
+  },
+  {
+    "id": "16",
+    "query": "What is Korean Doenjang?"
+  },
+  {
+    "id": "17",
+    "query": "What is the traditional method for making the Korean alcoholic beverage Makgeolli?"
+  },
+  {
+    "id": "18",
+    "query": "What is 'Yoshoku' in the history of Japanese food?"
+  },
+  {
+    "id": "19",
+    "query": "What is the technical difference between sushi and sashimi?"
+  },
+  {
+    "id": "20",
+    "query": "Which Chinese cuisine is particularly known for its sweet and light flavors, with an emphasis on braising and stewing techniques?"
+  },
+  {
+    "id": "21",
+    "query": "What is 'Itameshi'?"
+  },
+  {
+    "id": "22",
+    "query": "What ingredients are strictly forbidden in Korean temple cuisine?"
+  },
+  {
+    "id": "23",
+    "query": "What is 'tsampa' in Tibetan culture?"
+  },
+  {
+    "id": "24",
+    "query": "What are the common ingredients featured heavily in Uyghur cuisine?"
+  },
+  {
+    "id": "25",
+    "query": "What is a popular Hong Kong street food made from a sweet, egg-rich batter cooked in a special heated griddle?"
+  },
+  {
+    "id": "26",
+    "query": "According to typical Wikibooks recipes for Japanese Onigiri, what must the cook do to their hands before shaping the rice?"
+  },
+  {
+    "id": "27",
+    "query": "What type of noodles are required when making Spicy Miso Udon based on traditional recipes?"
+  },
+  {
+    "id": "28",
+    "query": "What is the primary characteristic of the traditional Korean dining setup for Gogigui (Korean barbecue)?"
+  },
+  {
+    "id": "29",
+    "query": "What are the key components of a classic Gochujang paste?"
+  },
+  {
+    "id": "30",
+    "query": "How is Wonton noodle soup typically served in Hong Kong cuisine?"
+  }
 ]

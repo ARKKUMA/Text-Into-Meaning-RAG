@@ -1,14 +1,302 @@
 [
   {
-    "id": "q1",
-    "query": "Where does paella come from?",
-    "gold_answer": "Paella comes from Valencia in Spain.",
-    "gold_evidence_doc_ids": ["doc_1"]
+    "id": "1",
+    "query": "What are the eight major culinary traditions of Chinese cuisine?",
+    "gold_answer": "The eight major culinary traditions of Chinese cuisine are Anhui, Cantonese, Fujian, Hunan, Jiangsu, Shandong, Sichuan, and Zhejiang cuisines.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
   },
   {
-    "id": "q2",
-    "query": "What is hummus made from?",
-    "gold_answer": "Hummus is made from chickpeas, tahini, lemon juice, and garlic.",
-    "gold_evidence_doc_ids": ["doc_2"]
+    "id": "2",
+    "query": "Which Chinese regional cuisine is most famous for its 'málà' flavor profile?",
+    "gold_answer": "Sichuan cuisine is famous for its 'málà' (numbing and spicy) flavor profile.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "3",
+    "query": "What specific ingredient creates the numbing sensation characteristic of Sichuan cuisine?",
+    "gold_answer": "The Sichuan peppercorn (huajiao) is responsible for the unique numbing sensation in Sichuan cuisine.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "4",
+    "query": "What are the fundamental ingredients used to make traditional Japanese dashi (soup stock)?",
+    "gold_answer": "Traditional Japanese dashi is primarily made from kombu (kelp) and katsuobushi (bonito flakes).",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "5",
+    "query": "In Japanese culinary tradition, what is 'Kaiseki'?",
+    "gold_answer": "Kaiseki is a traditional multi-course Japanese dinner that carefully balances taste, texture, appearance, and colors.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "6",
+    "query": "What is the primary staple grain consumed in Korean cuisine?",
+    "gold_answer": "Short-grain white rice is the primary staple grain in Korean cuisine.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "7",
+    "query": "What are 'banchan' in the context of a Korean meal?",
+    "gold_answer": "Banchan are small side dishes that are served along with cooked rice in traditional Korean cuisine.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "8",
+    "query": "What is the main composition of traditional Mongolian cuisine due to its extreme continental climate?",
+    "gold_answer": "Mongolian cuisine primarily consists of dairy products, meat, and animal fats, with very limited use of vegetables and spices due to the harsh climate.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "9",
+    "query": "What is Khorkhog?",
+    "gold_answer": "Khorkhog is a traditional Mongolian barbecue dish where meat, usually lamb or mutton, is cooked inside a container with hot stones.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "10",
+    "query": "In Taiwanese cuisine, what specific type of starch is used to make the 'bubbles' or 'boba' in bubble tea?",
+    "gold_answer": "The bubbles in traditional Taiwanese bubble tea are made from tapioca starch.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "11",
+    "query": "What is a defining characteristic of Hakka cuisine?",
+    "gold_answer": "Hakka cuisine heavily features preserved meats and vegetables, and is generally salty and hearty to help replenish salt lost through hard physical labor.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "12",
+    "query": "How is Dim Sum traditionally served and consumed?",
+    "gold_answer": "Dim Sum consists of small bite-sized portions of food served in small steamer baskets or on small plates, and it is traditionally enjoyed with tea.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "13",
+    "query": "What does 'Char siu' refer to in Cantonese cooking?",
+    "gold_answer": "Char siu is a popular way to flavor and prepare barbecued pork in Cantonese cuisine.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "14",
+    "query": "What is Awamori and where does it originate?",
+    "gold_answer": "Awamori is an indigenous alcoholic beverage unique to Okinawa, Japan, and it is made from long grain indica rice.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "15",
+    "query": "How does Okinawan cuisine significantly differ from mainland Japanese cuisine?",
+    "gold_answer": "Okinawan cuisine has heavier influences from Chinese cuisine, uses significantly more pork, and frequently features local ingredients like bitter melon (goya).",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "16",
+    "query": "What is Korean Doenjang?",
+    "gold_answer": "Doenjang is a traditional Korean fermented soybean paste used heavily as a condiment and soup base.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "17",
+    "query": "What is the traditional method for making the Korean alcoholic beverage Makgeolli?",
+    "gold_answer": "Makgeolli is traditionally made by fermenting a mixture of boiled rice, wheat, and water using a fermentation starter called nuruk.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "18",
+    "query": "What is 'Yoshoku' in the history of Japanese food?",
+    "gold_answer": "Yoshoku refers to a style of Western-influenced Japanese cooking that originated during the Meiji Restoration.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "19",
+    "query": "What is the technical difference between sushi and sashimi?",
+    "gold_answer": "Sushi refers to any dish made with vinegared rice, whereas sashimi consists only of thinly sliced raw meat or fish served without any rice.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "20",
+    "query": "Which Chinese cuisine is particularly known for its sweet and light flavors, with an emphasis on braising and stewing techniques?",
+    "gold_answer": "Jiangsu cuisine (specifically Huaiyang cuisine) is known for its sweet, light flavors and emphasis on braising and stewing.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "21",
+    "query": "What is 'Itameshi'?",
+    "gold_answer": "Itameshi is a popular type of Japanese-Italian fusion cuisine.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "22",
+    "query": "What ingredients are strictly forbidden in Korean temple cuisine?",
+    "gold_answer": "Korean temple cuisine strictly forbids all meat, dairy, and the five pungent vegetables: onions, garlic, chives, green onions, and leeks.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "23",
+    "query": "What is 'tsampa' in Tibetan culture?",
+    "gold_answer": "Tsampa is roasted barley flour, which serves as the central staple food in Tibetan cuisine.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "24",
+    "query": "What are the common ingredients featured heavily in Uyghur cuisine?",
+    "gold_answer": "Uyghur cuisine heavily features mutton, beef, camel, carrots, tomatoes, onions, peppers, and dairy foods, reflecting Central Asian culinary traditions.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "25",
+    "query": "What is a popular Hong Kong street food made from a sweet, egg-rich batter cooked in a special heated griddle?",
+    "gold_answer": "The egg waffle (or gai daan jai) is a popular Hong Kong street food made from sweet, egg-rich batter.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "26",
+    "query": "According to typical Wikibooks recipes for Japanese Onigiri, what must the cook do to their hands before shaping the rice?",
+    "gold_answer": "The cook must wet their hands with water and lightly salt them to prevent the rice from sticking and to flavor the exterior of the rice ball.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "27",
+    "query": "What type of noodles are required when making Spicy Miso Udon based on traditional recipes?",
+    "gold_answer": "Thick, chewy wheat noodles known as Udon noodles are required for making Spicy Miso Udon.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "28",
+    "query": "What is the primary characteristic of the traditional Korean dining setup for Gogigui (Korean barbecue)?",
+    "gold_answer": "Gogigui is typically characterized by cooking various meats on gas or charcoal grills built directly into the center of the dining table itself.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "29",
+    "query": "What are the key components of a classic Gochujang paste?",
+    "gold_answer": "Gochujang is a fermented paste made primarily from chili powder, glutinous rice, meju (fermented soybean) powder, yeotgireum (barley malt powder), and salt.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
+  },
+  {
+    "id": "30",
+    "query": "How is Wonton noodle soup typically served in Hong Kong cuisine?",
+    "gold_answer": "In Hong Kong cuisine, it is typically served as a hot bowl of soup containing egg noodles and wontons, usually garnished with leafy vegetables like gai lan.",
+    "gold_evidence_doc_ids": [
+      "doc_1",
+      "doc_2",
+      "doc_3"
+    ]
   }
 ]

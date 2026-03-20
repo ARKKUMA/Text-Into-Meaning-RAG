@@ -13,15 +13,20 @@ A lightweight, efficient Retrieval-Augmented Generation (RAG) framework baseline
 
 ```text
 rag_baseline/
-├── data/
+├── data/                          # Processed data for RAG (auto-generated)
 │   ├── corpus.jsonl               # Background knowledge corpus
 │   ├── benchmark.json             # Labelled benchmark for evaluation
 │   └── test_queries.json          # Inference input questions
 ├── index_store/                   # Generated FAISS vector index (auto-created)
 ├── outputs/                       # Generated answers and eval metrics (auto-created)
+├── Blog_EastAsian_Cuisines.txt    # Raw culinary corpus 1
+├── East_Asian_Corpus_Massive.txt  # Raw culinary corpus 2
+├── Wikibooks_EastAsian_Recipes.txt# Raw culinary corpus 3
+├── east_asia_benchmark_test.json  # Raw Q&A pairs
 ├── config.py                      # Centralized configuration & hardware routing
 ├── utils.py                       # Helper functions and metric calculations
 ├── install.py                     # Environment setup and dependency installation script
+├── prepare_data.py                # Script to convert raw files to data/ folder
 ├── build_index.py                 # Script to chunk and embed the corpus
 ├── inference.py                   # Script to run RAG generation
 ├── evaluation.py                  # Script to score model outputs
@@ -39,22 +44,26 @@ python install.py
 
 ## Quick Start
 
-Before running the pipeline, ensure your background text is in `data/corpus.jsonl` and your test questions are in `data/test_queries.json` and `data/benchmark.json`.
+### 1. Prepare Data
+Convert raw text and JSON files into the formatted dataset required by the system.
+```bash
+python prepare_data.py
+```
 
-### 1. Build the Vector Index
+### 2. Build the Vector Index
 This will parse the corpus, chunk the text, generate embeddings, and save the FAISS index to `index_store/`.
 ```bash
 python build_index.py
 ```
 
-### 2. Run Inference
+### 3. Run Inference
 The system will automatically utilize available hardware resources to retrieve context and generate answers.
 ```bash
 python inference.py
 ```
 Outputs will be saved to `outputs/inference_output.json`.
 
-### 3. Evaluate Performance
+### 4. Evaluate Performance
 Compare generated answers against the gold standard to calculate Exact Match and Token F1 scores.
 ```bash
 python evaluation.py
