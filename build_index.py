@@ -31,9 +31,10 @@ def main() -> None:
 
         chunks = splitter.split_text(text)
         for i, chunk in enumerate(chunks):
+            enriched_chunk = f"Title: {title}\nSource: {source}\nType: {document_type}\n\n{chunk}"
             documents.append(
                 Document(
-                    page_content=chunk,
+                    page_content=enriched_chunk,
                     metadata={
                         "doc_id": doc_id,
                         "title": title,

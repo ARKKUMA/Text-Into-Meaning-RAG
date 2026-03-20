@@ -10,12 +10,14 @@ from config import (
     GENERATION_MODEL_NAME,
     FAISS_INDEX_PATH,
     TOP_K,
+    RETRIEVAL_CANDIDATE_K,
+    RETRIEVAL_ALPHA,
     MAX_NEW_TOKENS,
     DEVICE,
     TEMPERATURE,
     INFERENCE_OUTPUT_PATH,
 )
-from utils import load_json, save_json, build_prompt
+from utils import load_json, save_json, build_prompt, lexical_overlap_score
 
 
 def load_vectorstore():
@@ -59,9 +61,37 @@ def generate_answer(tokenizer, model, prompt: str) -> str:
 
     decoded = tokenizer.decode(output_ids[0], skip_special_tokens=True)
 
+    if "Final Answer:" in decoded:
+        return decoded.split("Final Answer:", 1)[-1].strip()
     if "Answer:" in decoded:
         return decoded.split("Answer:", 1)[-1].strip()
-    return decoded.strip()
+    return decoded.strip().split("\n")[0]
+
+
+def hybrid_retrieve(vectorstore, query: str):
+    # 1) semantic recall
+    docs_with_scores = vectorstore.similarity_search_with_score(
+        query, k=RETRIEVAL_CANDIDATE_K
+    )
+    if not docs_with_scores:
+        return []
+
+    # 2) score normalization and lexical re-ranking
+    max_dist = max(score for _, score in docs_with_scores)
+    min_dist = min(score for _, score in docs_with_scores)
+
+    reranked = []
+    for doc, dist in docs_with_scores:
+        if max_dist == min_dist:
+            semantic = 1.0
+        else:
+            semantic = 1.0 - ((dist - min_dist) / (max_dist - min_dist))
+        lexical = lexical_overlap_score(query, doc.page_content)
+        hybrid = RETRIEVAL_ALPHA * semantic + (1.0 - RETRIEVAL_ALPHA) * lexical
+        reranked.append((doc, hybrid, semantic, lexical))
+
+    reranked.sort(key=lambda x: x[1], reverse=True)
+    return reranked[:TOP_K]
 
 
 def main() -> None:
@@ -75,10 +105,9 @@ def main() -> None:
         qid = item["id"]
         query = item["query"]
 
-        docs = vectorstore.similarity_search(query, k=TOP_K)
-
+        reranked = hybrid_retrieve(vectorstore, query)
+        docs = [x[0] for x in reranked]
         retrieved_chunks = [d.page_content for d in docs]
-        retrieved_metadata = [d.metadata for d in docs]
 
         prompt = build_prompt(query, retrieved_chunks)
         answer = generate_answer(tokenizer, model, prompt)
@@ -92,8 +121,11 @@ def main() -> None:
                     {
                         "text": d.page_content,
                         "metadata": d.metadata,
+                        "hybrid_score": round(reranked[i][1], 4),
+                        "semantic_score": round(reranked[i][2], 4),
+                        "lexical_score": round(reranked[i][3], 4),
                     }
-                    for d in docs
+                    for i, d in enumerate(docs)
                 ],
             }
         )

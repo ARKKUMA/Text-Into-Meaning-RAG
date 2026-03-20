@@ -66,13 +66,31 @@ def token_f1(pred: str, gold: str) -> float:
     return 2 * precision * recall / (precision + recall)
 
 
+def lexical_overlap_score(query: str, text: str) -> float:
+    query_tokens = set(normalize_text(query).split())
+    if not query_tokens:
+        return 0.0
+    text_tokens = set(normalize_text(text).split())
+    if not text_tokens:
+        return 0.0
+    return len(query_tokens.intersection(text_tokens)) / len(query_tokens)
+
+
+def reciprocal_rank(retrieved_doc_ids: List[str], gold_doc_ids: set[str]) -> float:
+    for rank, doc_id in enumerate(retrieved_doc_ids, start=1):
+        if doc_id in gold_doc_ids:
+            return 1.0 / rank
+    return 0.0
+
+
 def build_prompt(query: str, retrieved_chunks: List[str]) -> str:
     context = "\n\n".join(
         [f"[Chunk {i+1}]\n{chunk}" for i, chunk in enumerate(retrieved_chunks)]
     )
-    return f"""You are a culinary question-answering assistant.
-Answer the user's question using only the provided context.
-If the answer cannot be determined from the context, say so clearly.
+    return f"""You are a culinary question-answering assistant specialised in cuisine.
+Use only the provided context to answer.
+If the answer is not in the context, output exactly: "I cannot determine this from the provided context."
+Keep the answer concise (1-2 sentences), factual, and avoid adding assumptions.
 
 Context:
 {context}
@@ -80,4 +98,4 @@ Context:
 Question:
 {query}
 
-Answer:"""
+Final Answer:"""
