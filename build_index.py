@@ -1,13 +1,10 @@
 from langchain_core.documents import Document
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 
 from config import (
     CORPUS_PATH,
     EMBEDDING_MODEL_NAME,
-    CHUNK_SIZE,
-    CHUNK_OVERLAP,
     FAISS_INDEX_PATH,
 )
 from utils import load_jsonl
@@ -16,34 +13,27 @@ from utils import load_jsonl
 def main() -> None:
     corpus = load_jsonl(CORPUS_PATH)
 
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=CHUNK_SIZE,
-        chunk_overlap=CHUNK_OVERLAP,
-    )
-
     documents = []
     for row in corpus:
-        doc_id = row["doc_id"]
+        chunk_id = row["doc_id"]
         title = row.get("title", "")
         source = row.get("source", "")
         document_type = row.get("document_type", "")
         text = row["text"]
 
-        chunks = splitter.split_text(text)
-        for i, chunk in enumerate(chunks):
-            enriched_chunk = f"Title: {title}\nSource: {source}\nType: {document_type}\n\n{chunk}"
-            documents.append(
-                Document(
-                    page_content=enriched_chunk,
-                    metadata={
-                        "doc_id": doc_id,
-                        "title": title,
-                        "source": source,
-                        "document_type": document_type,
-                        "chunk_id": f"{doc_id}_chunk_{i}",
-                    },
-                )
+        enriched_chunk = f"Title: {title}\nSource: {source}\nType: {document_type}\n\n{text}"
+        documents.append(
+            Document(
+                page_content=enriched_chunk,
+                metadata={
+                    "doc_id": chunk_id, 
+                    "title": title,
+                    "source": source,
+                    "document_type": document_type,
+                    "chunk_id": chunk_id,
+                },
             )
+        )
 
     embeddings = HuggingFaceEmbeddings(
         model_name=EMBEDDING_MODEL_NAME,

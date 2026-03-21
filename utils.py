@@ -2,6 +2,8 @@ import json
 import re
 from pathlib import Path
 from typing import List, Dict, Any
+from langchain_text_splitters import RecursiveCharacterTextSplitter
+from config import CHUNK_SIZE, CHUNK_OVERLAP
 
 
 def load_json(path: Path) -> Any:
@@ -99,3 +101,10 @@ Question:
 {query}
 
 Final Answer:"""
+
+def get_text_splitter():
+    """Returns a unified text splitter for both data preparation and indexing."""
+    return RecursiveCharacterTextSplitter(
+        chunk_size=CHUNK_SIZE,
+        chunk_overlap=CHUNK_OVERLAP,
+    )
