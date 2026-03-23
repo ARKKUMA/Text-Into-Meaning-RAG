@@ -1,8 +1,123 @@
 import requests
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, FeatureNotFound
 import re
 import time
 import os
+import html2text
+from urllib.parse import unquote
+
+
+def _get_heading_id(heading):
+    # Wikipedia heading id can be on the heading tag itself or on a nested mw-headline span.
+    direct_id = heading.get("id")
+    if direct_id:
+        return direct_id
+
+    headline = heading.find('span', {'class': 'mw-headline'})
+    if headline:
+        return headline.get("id")
+
+    return None
+
+
+def _extract_target_section(content, soup, section_id):
+    # Try both raw and underscore-normalized fragment ids.
+    target = content.find(id=section_id) or content.find(id=section_id.replace(" ", "_"))
+    if not target:
+        return content
+
+    # Target may be a heading itself (newer HTML) or a nested span (older HTML).
+    header = target if target.name in ['h2', 'h3', 'h4', 'h5'] else target.find_parent(['h2', 'h3', 'h4', 'h5'])
+    if not header:
+        return content
+
+    # Newer Wikipedia wraps heading tags in a div.mw-heading container.
+    header_block = header
+    parent = header.parent
+    if parent and parent.name == 'div' and parent.get('class') and 'mw-heading' in parent.get('class'):
+        header_block = parent
+
+    html_parts = [str(header_block)]
+
+    for sibling in header_block.find_next_siblings():
+        # Stop at the next top heading block (modern HTML) or heading tag (older HTML).
+        sibling_classes = sibling.get('class') if hasattr(sibling, 'get') else None
+        if sibling.name == 'div' and sibling_classes and 'mw-heading' in sibling_classes:
+            break
+        if sibling.name in ['h1', 'h2']:
+            break
+        html_parts.append(str(sibling))
+
+    section_html = f"<div>{''.join(html_parts)}</div>"
+    return BeautifulSoup(section_html, 'html.parser').div
+
+
+def _remove_heading_and_tail(heading):
+    # Remove heading block plus all following siblings in the same extraction container.
+    heading_block = heading
+    parent = heading.parent
+    if parent and parent.name == 'div' and parent.get('class') and 'mw-heading' in parent.get('class'):
+        heading_block = parent
+
+    for sibling in heading_block.find_next_siblings():
+        sibling.decompose()
+    heading_block.decompose()
+
+
+def _normalize_heading_key(text):
+    # Normalize heading text/id for robust matching across case/space/underscore differences.
+    return re.sub(r'[^a-z]+', '_', text.strip().lower()).strip('_')
+
+
+def _extract_markdown_anchor_section(markdown_text, section_id):
+    section_key = _normalize_heading_key(section_id)
+    lines = markdown_text.split('\n')
+
+    in_section = False
+    start_level = None
+    selected = []
+
+    for line in lines:
+        stripped = line.strip()
+        heading_match = re.match(r'^(#{1,6})\s*(.+?)\s*$', stripped)
+        if heading_match:
+            level = len(heading_match.group(1))
+            heading_text = heading_match.group(2)
+            heading_key = _normalize_heading_key(heading_text)
+
+            key_match = heading_key == section_key or re.search(
+                rf'(^|_){re.escape(section_key)}($|_)',
+                heading_key
+            )
+            if not in_section and key_match:
+                in_section = True
+                start_level = level
+
+            elif in_section and level <= start_level:
+                break
+
+        if in_section:
+            selected.append(line)
+
+    return '\n'.join(selected).strip()
+
+
+def _is_low_value_url(url):
+    # List/index pages are usually navigation-heavy and low value for retrieval quality.
+    url_lower = url.lower()
+
+    # Keep this curated section: list page but only East Asian cuisine anchor.
+    if "/wiki/list_of_asian_cuisines" in url_lower and "#" in url_lower:
+        frag = url_lower.split('#', 1)[1].strip().replace(" ", "_")
+        if frag == "east_asian_cuisine":
+            return False
+
+    low_value_patterns = [
+        "/wiki/List_of_",
+        "/wiki/Index_of_",
+        "/wiki/Category:",
+    ]
+    return any(pattern.lower() in url_lower for pattern in low_value_patterns)
 
 def clean_wiki_text(url):
     try:
@@ -11,35 +126,82 @@ def clean_wiki_text(url):
         response = requests.get(url, headers=headers, timeout=10)
         response.raise_for_status()
         
-        soup = BeautifulSoup(response.text, 'html.parser')
+        try:
+            soup = BeautifulSoup(response.text, 'lxml')
+        except FeatureNotFound:
+            try:
+                soup = BeautifulSoup(response.text, 'html5lib')
+            except FeatureNotFound:
+                soup = BeautifulSoup(response.text, 'html.parser')
         
         # Get page title
         title_element = soup.find('h1')
         title = title_element.text if title_element else "Unknown Title"
         
         # Get main content area
-        content = soup.find('div', {'class': 'mw-parser-output'})
+        full_content = soup.find('div', {'class': 'mw-parser-output'})
+        content = full_content
         if not content:
             return ""
+        section_id = None
+
+        if '#' in url:
+            section_id = unquote(url.split('#', 1)[-1]).strip()
+            content = _extract_target_section(content, soup, section_id)
+
+        junk_ids = {'references', 'external_links', 'bibliography', 'notes', 'see_also', 'further_reading'}
+        for heading in content.find_all(['h2', 'h3', 'h4']):
+            heading_id = _get_heading_id(heading)
+            normalized_id = _normalize_heading_key(heading_id) if heading_id else ""
+            normalized_text = _normalize_heading_key(heading.get_text(" ", strip=True))
+            if normalized_id in junk_ids or normalized_text in junk_ids:
+                _remove_heading_and_tail(heading)
+                break
         
         # Remove references like [1] and edit links
         for sup in content.find_all('sup', {'class': 'reference'}):
             sup.decompose()
         for span in content.find_all('span', {'class': 'mw-editsection'}):
             span.decompose()
-            
-        paragraphs = content.find_all(['p', 'h2', 'h3', 'li'])
+
+        h = html2text.HTML2Text()
+        h.body_width = 0
+        h.unicode_snob = True
+        h.ignore_links = True   
+        h.ignore_images = True  
         
-        clean_lines = [f"# {title}\n"]
-        for p in paragraphs:
-            text = p.get_text().strip()
+        raw_markdown = h.handle(str(content))
+
+        # Fallback: if anchor extraction is too short, extract by markdown heading range.
+        if section_id and len(raw_markdown.strip()) < 200 and full_content:
+            full_markdown = h.handle(str(full_content))
+            extracted = _extract_markdown_anchor_section(full_markdown, section_id)
+            if extracted:
+                raw_markdown = extracted
+        
+        clean_lines = [f"# {title}"]
+        
+        stop_headings = {'references', 'external_links', 'further_reading', 'see_also', 'notes', 'bibliography'}
+
+        for line in raw_markdown.split('\n'):
+            text = line.strip()
+            normalized_line = _normalize_heading_key(re.sub(r'^#+\s*', '', text))
+
+            # If a metadata section heading appears, stop consuming the page content.
+            if normalized_line in stop_headings:
+                break
             
             if text.startswith("Cookbook |") or "Cookbook Disambiguation Pages" in text:
                 continue
             if "Incomplete recipes" in text or "deletion policy" in text or "meaningful content" in text:
                 continue
+            if text in {"References", "External links", "Further reading", "See also", "Notes", "Bibliography", "v", "t", "e"}:
+                continue
+            if "Retrieved" in text and "Archived" in text:
+                continue
                 
-            if len(text) > 5: 
+            is_structure = text.startswith(('#', '*', '-', '1.'))
+            if is_structure or len(text) > 2: 
                 text = re.sub(r'\s+', ' ', text)
                 clean_lines.append(text)
                 
@@ -147,23 +309,32 @@ urls = [
     "https://en.wikibooks.org/wiki/Cookbook:Wonton_Soup"
 ]
 
-all_text = ""
-print("Starting to scrape East Asian cuisine corpus...")
+def main():
+    all_text = ""
+    print("Starting to scrape East Asian cuisine corpus...")
 
-for url in urls:
-    print(f"Fetching: {url}")
-    scraped_text = clean_wiki_text(url)
-    if scraped_text:
-        all_text += scraped_text + "\n\n"
-    # Delay to prevent IP blocking
-    time.sleep(1.5)
+    for url in urls:
+        if _is_low_value_url(url):
+            print(f"Skipping low-value page: {url}")
+            continue
 
-# Save to data directory if it exists, otherwise use current directory
-output_dir = "../data" if os.path.exists("../data") else "."
-output_filename = os.path.join(output_dir, "East_Asian_Corpus_Massive.txt")
+        print(f"Fetching: {url}")
+        scraped_text = clean_wiki_text(url)
+        if scraped_text:
+            all_text += scraped_text + "\n\n---\n\n"
+        # Delay to prevent IP blocking
+        time.sleep(1.5)
 
-with open(output_filename, "w", encoding="utf-8") as f:
-    f.write(all_text)
+    # Save to data directory if it exists, otherwise use current directory
+    output_dir = "../data" if os.path.exists("../data") else "."
+    output_filename = os.path.join(output_dir, "East_Asian_Corpus_Massive.md")
 
-print(f"\nDone! Saved to: {output_filename}")
-print(f"Total characters: {len(all_text)}")
+    with open(output_filename, "w", encoding="utf-8") as f:
+        f.write(all_text)
+
+    print(f"\nDone! Saved to: {output_filename}")
+    print(f"Total characters: {len(all_text)}")
+
+
+if __name__ == "__main__":
+    main()

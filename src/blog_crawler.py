@@ -4,6 +4,17 @@ import re
 import time
 import os
 
+
+def _normalize_heading_key(text):
+    return re.sub(r'[^a-z]+', '_', text.strip().lower()).strip('_')
+
+
+def _is_stop_heading(text):
+    stop_headings = {
+        'references', 'external_links', 'further_reading', 'see_also', 'notes', 'bibliography'
+    }
+    return _normalize_heading_key(text) in stop_headings
+
 def get_post_links(category_url):
     # Fetch category page
     headers = {'User-Agent': 'Mozilla/5.0'}
@@ -45,17 +56,28 @@ def scrape_post(url):
             div.decompose()
             
         # Extract clean text
-        paragraphs = content_div.find_all(['p', 'h2', 'h3', 'li'])
-        lines = [f"\n# {title}"]
-        
-        for p in paragraphs:
-            text = p.get_text().strip()
-            # Filter out very short strings and clean spaces
-            if len(text) > 15: 
-                text = re.sub(r'\s+', ' ', text)
+        blocks = content_div.find_all(['p', 'h2', 'h3', 'li'])
+        lines = [f"# {title}"]
+
+        for block in blocks:
+            text = block.get_text(" ", strip=True)
+            if _is_stop_heading(text):
+                break
+
+            text = re.sub(r'\s+', ' ', text)
+            if len(text) <= 5:
+                continue
+
+            if block.name == 'h2':
+                lines.append(f"## {text}")
+            elif block.name == 'h3':
+                lines.append(f"### {text}")
+            elif block.name == 'li':
+                lines.append(f"* {text}")
+            else:
                 lines.append(text)
-                
-        return "\n".join(lines)
+
+        return "\n\n".join(lines)
         
     except Exception as e:
         print(f"Error fetching {url}: {e}")
@@ -71,27 +93,32 @@ categories = [
     "https://aroundtheworldin80cuisinesblog.wordpress.com/category/75-mongolia/"
 ]
 
-all_text = ""
-print("Starting blog scrape...")
+def main():
+    all_docs = []
+    print("Starting blog scrape...")
 
-# Process all categories
-for cat_url in categories:
-    print(f"\nScanning category: {cat_url}")
-    post_links = get_post_links(cat_url)
-    
-    # Scrape each post found in the category
-    for i, post_url in enumerate(post_links):
-        print(f"  Scraping post [{i+1}/{len(post_links)}]: {post_url}")
-        text = scrape_post(post_url)
-        if text:
-            all_text += text + "\n"
-        time.sleep(1.0) # Delay to prevent IP block
+    # Process all categories
+    for cat_url in categories:
+        print(f"\nScanning category: {cat_url}")
+        post_links = get_post_links(cat_url)
 
-# Save output
-output_dir = "../data" if os.path.exists("../data") else "."
-output_filename = os.path.join(output_dir, "Blog_EastAsian_Cuisines.txt")
+        # Scrape each post found in the category
+        for i, post_url in enumerate(post_links):
+            print(f"  Scraping post [{i+1}/{len(post_links)}]: {post_url}")
+            text = scrape_post(post_url)
+            if text:
+                all_docs.append(text)
+            time.sleep(1.0)  # Delay to prevent IP block
 
-with open(output_filename, "w", encoding="utf-8") as f:
-    f.write(all_text)
+    # Save output
+    output_dir = "../data" if os.path.exists("../data") else "."
+    output_filename = os.path.join(output_dir, "Blog_EastAsian_Cuisines.md")
 
-print(f"\nDone! Saved to: {output_filename}")
+    with open(output_filename, "w", encoding="utf-8") as f:
+        f.write("\n\n---\n\n".join(all_docs) + "\n")
+
+    print(f"\nDone! Saved to: {output_filename}")
+
+
+if __name__ == "__main__":
+    main()

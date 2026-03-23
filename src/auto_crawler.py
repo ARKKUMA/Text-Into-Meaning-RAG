@@ -4,6 +4,17 @@ import re
 import time
 import os
 
+
+def _normalize_heading_key(text):
+    return re.sub(r'[^a-z]+', '_', text.strip().lower()).strip('_')
+
+
+def _is_stop_heading(text):
+    stop_headings = {
+        'references', 'external_links', 'further_reading', 'see_also', 'notes', 'bibliography'
+    }
+    return _normalize_heading_key(text) in stop_headings
+
 def get_real_recipes_from_categories(category_urls):
     print("Scanning underlying MediaWiki category pages...")
     all_links = []
@@ -54,20 +65,35 @@ def scrape_recipe_text(url):
             elif element.name == 'table' or (element.name == 'div' and 'navbox' in element.get('class', [])):
                 element.decompose() 
             
-        paragraphs = content.find_all(['p', 'h2', 'h3', 'li'])
-        
-        lines = [f"\n# {title}"]
-        for p in paragraphs:
-            text = p.get_text().strip()
-            
+        blocks = content.find_all(['p', 'h2', 'h3', 'li'])
+
+        lines = [f"# {title}"]
+        for block in blocks:
+            text = block.get_text(" ", strip=True)
+
             if text.startswith("Cookbook |") or "Cookbook Disambiguation Pages" in text:
-                continue 
-                
-            if len(text) > 5: 
-                text = re.sub(r'\s+', ' ', text)
+                continue
+            if "Incomplete recipes" in text or "deletion policy" in text or "meaningful content" in text:
+                continue
+            if text in {"v", "t", "e"}:
+                continue
+            if _is_stop_heading(text):
+                break
+
+            text = re.sub(r'\s+', ' ', text)
+            if len(text) <= 3:
+                continue
+
+            if block.name == 'h2':
+                lines.append(f"## {text}")
+            elif block.name == 'h3':
+                lines.append(f"### {text}")
+            elif block.name == 'li':
+                lines.append(f"* {text}")
+            else:
                 lines.append(text)
-                
-        return "\n".join(lines)
+
+        return "\n\n".join(lines)
     
     except Exception as e:
         print(f"Error fetching {url}: {e}")
@@ -80,22 +106,27 @@ category_urls = [
     "https://en.wikibooks.org/wiki/Category:Taiwanese_recipes"
 ]
 
-recipe_urls = get_real_recipes_from_categories(category_urls)
+def main():
+    recipe_urls = get_real_recipes_from_categories(category_urls)
 
-all_text = ""
-print("Starting bulk recipe extraction...")
+    all_docs = []
+    print("Starting bulk recipe extraction...")
 
-for i, url in enumerate(recipe_urls):
-    print(f"[{i+1}/{len(recipe_urls)}] Scraping: {url}")
-    scraped_text = scrape_recipe_text(url)
-    if scraped_text:
-        all_text += scraped_text + "\n"
-    time.sleep(1.0) 
+    for i, url in enumerate(recipe_urls):
+        print(f"[{i+1}/{len(recipe_urls)}] Scraping: {url}")
+        scraped_text = scrape_recipe_text(url)
+        if scraped_text:
+            all_docs.append(scraped_text)
+        time.sleep(1.0)
 
-output_dir = "../data" if os.path.exists("../data") else "."
-output_filename = os.path.join(output_dir, "Wikibooks_EastAsian_Recipes_Clean.txt")
+    output_dir = "../data" if os.path.exists("../data") else "."
+    output_filename = os.path.join(output_dir, "Wikibooks_EastAsian_Recipes_Clean.md")
 
-with open(output_filename, "w", encoding="utf-8") as f:
-    f.write(all_text)
+    with open(output_filename, "w", encoding="utf-8") as f:
+        f.write("\n\n---\n\n".join(all_docs) + "\n")
 
-print(f"\nDone! Recipes saved to: {output_filename}")
+    print(f"\nDone! Recipes saved to: {output_filename}")
+
+
+if __name__ == "__main__":
+    main()
