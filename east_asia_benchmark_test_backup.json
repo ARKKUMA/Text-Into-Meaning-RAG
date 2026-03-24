@@ -1,0 +1,402 @@
+[
+  {
+    "query": "What are the eight major culinary traditions of Chinese cuisine?",
+    "answer": "The eight major culinary traditions of Chinese cuisine are Anhui, Cantonese, Fujian, Hunan, Jiangsu, Shandong, Sichuan, and Zhejiang cuisines."
+  },
+  {
+    "query": "Which Chinese regional cuisine is most famous for its 'málà' flavor profile?",
+    "answer": "Sichuan cuisine is famous for its 'málà' (numbing and spicy) flavor profile."
+  },
+  {
+    "query": "What specific ingredient creates the numbing sensation characteristic of Sichuan cuisine?",
+    "answer": "The Sichuan peppercorn (huajiao) is responsible for the unique numbing sensation in Sichuan cuisine."
+  },
+  {
+    "query": "What are the fundamental ingredients used to make traditional Japanese dashi (soup stock)?",
+    "answer": "Traditional Japanese dashi is primarily made from kombu (kelp) and katsuobushi (bonito flakes)."
+  },
+  {
+    "query": "In Japanese culinary tradition, what is 'Kaiseki'?",
+    "answer": "Kaiseki is a traditional multi-course Japanese dinner that carefully balances taste, texture, appearance, and colors."
+  },
+  {
+    "query": "What is the primary staple grain consumed in Korean cuisine?",
+    "answer": "Short-grain white rice is the primary staple grain in Korean cuisine."
+  },
+  {
+    "query": "What are 'banchan' in the context of a Korean meal?",
+    "answer": "Banchan are small side dishes that are served along with cooked rice in traditional Korean cuisine."
+  },
+  {
+    "query": "What is the main composition of traditional Mongolian cuisine due to its extreme continental climate?",
+    "answer": "Mongolian cuisine primarily consists of dairy products, meat, and animal fats, with very limited use of vegetables and spices due to the harsh climate."
+  },
+  {
+    "query": "What is Khorkhog?",
+    "answer": "Khorkhog is a traditional Mongolian barbecue dish where meat, usually lamb or mutton, is cooked inside a container with hot stones."
+  },
+  {
+    "query": "In Taiwanese cuisine, what specific type of starch is used to make the 'bubbles' or 'boba' in bubble tea?",
+    "answer": "The bubbles in traditional Taiwanese bubble tea are made from tapioca starch."
+  },
+  {
+    "query": "What is a defining characteristic of Hakka cuisine?",
+    "answer": "Hakka cuisine heavily features preserved meats and vegetables, and is generally salty and hearty to help replenish salt lost through hard physical labor."
+  },
+  {
+    "query": "How is Dim Sum traditionally served and consumed?",
+    "answer": "Dim Sum consists of small bite-sized portions of food served in small steamer baskets or on small plates, and it is traditionally enjoyed with tea."
+  },
+  {
+    "query": "What does 'Char siu' refer to in Cantonese cooking?",
+    "answer": "Char siu is a popular way to flavor and prepare barbecued pork in Cantonese cuisine."
+  },
+  {
+    "query": "What is Awamori and where does it originate?",
+    "answer": "Awamori is an indigenous alcoholic beverage unique to Okinawa, Japan, and it is made from long grain indica rice."
+  },
+  {
+    "query": "How does Okinawan cuisine significantly differ from mainland Japanese cuisine?",
+    "answer": "Okinawan cuisine has heavier influences from Chinese cuisine, uses significantly more pork, and frequently features local ingredients like bitter melon (goya)."
+  },
+  {
+    "query": "What is Korean Doenjang?",
+    "answer": "Doenjang is a traditional Korean fermented soybean paste used heavily as a condiment and soup base."
+  },
+  {
+    "query": "What is the traditional method for making the Korean alcoholic beverage Makgeolli?",
+    "answer": "Makgeolli is traditionally made by fermenting a mixture of boiled rice, wheat, and water using a fermentation starter called nuruk."
+  },
+  {
+    "query": "What is 'Yoshoku' in the history of Japanese food?",
+    "answer": "Yoshoku refers to a style of Western-influenced Japanese cooking that originated during the Meiji Restoration."
+  },
+  {
+    "query": "What is the technical difference between sushi and sashimi?",
+    "answer": "Sushi refers to any dish made with vinegared rice, whereas sashimi consists only of thinly sliced raw meat or fish served without any rice."
+  },
+  {
+    "query": "Which Chinese cuisine is particularly known for its sweet and light flavors, with an emphasis on braising and stewing techniques?",
+    "answer": "Jiangsu cuisine (specifically Huaiyang cuisine) is known for its sweet, light flavors and emphasis on braising and stewing."
+  },
+  {
+    "query": "What is 'Itameshi'?",
+    "answer": "Itameshi is a popular type of Japanese-Italian fusion cuisine."
+  },
+  {
+    "query": "What ingredients are strictly forbidden in Korean temple cuisine?",
+    "answer": "Korean temple cuisine strictly forbids all meat, dairy, and the five pungent vegetables: onions, garlic, chives, green onions, and leeks."
+  },
+  {
+    "query": "What is 'tsampa' in Tibetan culture?",
+    "answer": "Tsampa is roasted barley flour, which serves as the central staple food in Tibetan cuisine."
+  },
+  {
+    "query": "What are the common ingredients featured heavily in Uyghur cuisine?",
+    "answer": "Uyghur cuisine heavily features mutton, beef, camel, carrots, tomatoes, onions, peppers, and dairy foods, reflecting Central Asian culinary traditions."
+  },
+  {
+    "query": "What is a popular Hong Kong street food made from a sweet, egg-rich batter cooked in a special heated griddle?",
+    "answer": "The egg waffle (or gai daan jai) is a popular Hong Kong street food made from sweet, egg-rich batter."
+  },
+  {
+    "query": "According to typical Wikibooks recipes for Japanese Onigiri, what must the cook do to their hands before shaping the rice?",
+    "answer": "The cook must wet their hands with water and lightly salt them to prevent the rice from sticking and to flavor the exterior of the rice ball."
+  },
+  {
+    "query": "What type of noodles are required when making Spicy Miso Udon based on traditional recipes?",
+    "answer": "Thick, chewy wheat noodles known as Udon noodles are required for making Spicy Miso Udon."
+  },
+  {
+    "query": "What is the primary characteristic of the traditional Korean dining setup for Gogigui (Korean barbecue)?",
+    "answer": "Gogigui is typically characterized by cooking various meats on gas or charcoal grills built directly into the center of the dining table itself."
+  },
+  {
+    "query": "What are the key components of a classic Gochujang paste?",
+    "answer": "Gochujang is a fermented paste made primarily from chili powder, glutinous rice, meju (fermented soybean) powder, yeotgireum (barley malt powder), and salt."
+  },
+  {
+    "query": "How is Wonton noodle soup typically served in Hong Kong cuisine?",
+    "answer": "In Hong Kong cuisine, it is typically served as a hot bowl of soup containing egg noodles and wontons, usually garnished with leafy vegetables like gai lan."
+  },
+  {
+    "query": "What is tempura in Japanese cuisine?",
+    "answer": "Tempura is a Japanese style of cooking in which various meats, fish, and vegetables are dipped in batter and then deep fried until lightly golden."
+  },
+  {
+    "query": "What is tonkotsu ramen?",
+    "answer": "Tonkotsu ramen is a dish of ramen noodles served in a rich and fatty pork broth, usually garnished with toppings such as pork, green onions, and hard-boiled eggs."
+  },
+  {
+    "query": "What does the Korean word 'bulgogi' mean, and how is the dish prepared?",
+    "answer": "Bulgogi literally means 'fire meat': very finely sliced beef is marinated in a sauce of soy sauce, sugar, sesame oil, garlic, pepper, ginger, and onions, then quickly grilled over hot flames."
+  },
+  {
+    "query": "Why is Peking duck famous, and how is its skin prepared?",
+    "answer": "Peking duck is often considered a national dish of China; the duck is cooked so the skin separates from the fat and becomes light, crispy, and golden-red when roasted."
+  },
+  {
+    "query": "What is xiaolongbao?",
+    "answer": "Xiaolongbao is a type of steamed dumpling made with a thin skin of dough and stuffed with pork or minced crab meat, with delicious soup that stays inside the dumpling until it is bitten."
+  },
+  {
+    "query": "What is tteokbokki in Korean cuisine?",
+    "answer": "Tteokbokki is a popular Korean street snack of rice cakes cooked in a spicy sauce, commonly associated with gochujang and other seasonings."
+  },
+  {
+    "query": "What does 'bibimbap' mean, and how is the dish typically eaten?",
+    "answer": "Bibimbap literally means 'mixed rice' and describes cooked white rice topped with vegetables, a sauce often based on gochujang, and egg, traditionally stirred together in a hot stone bowl."
+  },
+  {
+    "query": "What is kimchi?",
+    "answer": "Kimchi is a Korean dish of salted and fermented vegetables, most commonly napa cabbage or Korean radish, commonly served as a side dish."
+  },
+  {
+    "query": "What are the main components of gimbap?",
+    "answer": "Gimbap's primary ingredients are gim (sheets of dried seaweed) and bap (rice), rolled with fillings such as vegetables and meat, similar to makizushi."
+  },
+  {
+    "query": "What is shabu-shabu?",
+    "answer": "Shabu-shabu is a Japanese nabemono hot pot style in which thinly sliced meat and other ingredients are cooked by swishing them in simmering broth at the table."
+  },
+  {
+    "query": "When is miso soup traditionally served in Japanese cuisine?",
+    "answer": "In traditional Japanese cuisine, miso soup is served for breakfast every day and is often served with meals as well."
+  },
+  {
+    "query": "What is gyudon?",
+    "answer": "Gyudon is a Japanese dish consisting of rice topped with beef and onion simmered in a mildly sweet sauce flavored with dashi, soy sauce, and mirin."
+  },
+  {
+    "query": "How does sukiyaki relate to shabu-shabu?",
+    "answer": "Sukiyaki is a kind of shabu-shabu (a Japanese dish), but it is a bit sweeter."
+  },
+  {
+    "query": "What are banchan in a Korean meal?",
+    "answer": "Banchan are small side dishes served along with cooked rice in Korean cuisine, often set in the middle of the table to be shared."
+  },
+  {
+    "query": "What is natto?",
+    "answer": "Natto is a Japanese preparation of fermented soybeans, often eaten as part of a Japanese-style breakfast."
+  },
+  {
+    "query": "Which drink is considered the usual choice with sushi in Japanese tradition?",
+    "answer": "Green tea is considered the drink of choice to have with sushi."
+  },
+  {
+    "query": "What seasonings and pastes are especially common in Korean cooking?",
+    "answer": "Commonly used ingredients include sesame oil, doenjang (fermented bean paste), soy sauce, salt, garlic, ginger, pepper flakes, and gochujang (fermented red chili paste)."
+  },
+  {
+    "query": "How are Korean jeongol and jjigae related to hot pot?",
+    "answer": "In Korea, jeongol and jjigae can be compared to hot pot, with many variations including budae-jjigae and kimchi-jjigae."
+  },
+  {
+    "query": "What is tebasaki in Nagoya cuisine?",
+    "answer": "Tebasaki are chicken wings marinated in a sweet sauce with sesame seeds and other seasoning, similar to yakitori."
+  },
+  {
+    "query": "What is kishimen?",
+    "answer": "Kishimen are flat udon noodles with a slippery texture, dipped in a light soy sauce soup and eaten with sliced leek or other toppings."
+  },
+  {
+    "query": "What does the name okonomiyaki mean in Japanese?",
+    "answer": "The name means \"as you like it\" or \"what you want\" in Japanese."
+  },
+  {
+    "query": "What are the main ingredients in a basic okonomiyaki batter?",
+    "answer": "It consists of a batter made of flour, eggs, cabbage and green onions and other ingredients of your choice."
+  },
+  {
+    "query": "What is onigiri?",
+    "answer": "Onigiri is a ball or triangle of hot or cold rice, often with a filling, frequently wrapped in nori making it easier to eat."
+  },
+  {
+    "query": "Name several common fillings used inside onigiri.",
+    "answer": "Common fillings include umeboshi (Japanese pickled plum); katsuobushi (dried bonito flakes); cooked, salted salmon; cod roe; kombu; and canned tuna with mayonnaise."
+  },
+  {
+    "query": "Why must onigiri be made with Japanese-style short-grain rice?",
+    "answer": "You must use Japanese-style short grain rice; if the rice isn't sticky, the onigiri won't hold together."
+  },
+  {
+    "query": "What is tonkatsu?",
+    "answer": "Tonkatsu is breaded deep-fried pork: cutlets are coated with flour, egg, and panko crumbs and fried until golden, then often sliced into strips."
+  },
+  {
+    "query": "What kind of bread crumbs are traditionally used to coat tonkatsu?",
+    "answer": "Panko (Japanese bread crumbs) is used for the coating."
+  },
+  {
+    "query": "What is kung pao chicken?",
+    "answer": "Kung pao chicken is a spicy Sichuan recipe made with diced chicken, chili peppers and peanuts, named after a court official."
+  },
+  {
+    "query": "Which Chinese province is mapo tofu traditionally associated with?",
+    "answer": "Mapo tofu is a classic spicy tofu and meat dish from the Sichuan province of China."
+  },
+  {
+    "query": "What sensation does Szechuan pepper add to mapo tofu compared to chili heat?",
+    "answer": "Some extra chili pepper can be substituted for Szechuan pepper, but the taste and feeling will be different—Szechuan pepper has a numbing sensation, not heat."
+  },
+  {
+    "query": "What are potstickers and how did they get their English name?",
+    "answer": "Potstickers are a Northern Chinese-style dumpling steamed in a wok then fried to crispness on one side; the one crisp side looks stuck to the pot, which gives the English name."
+  },
+  {
+    "query": "What is agedashi tofu?",
+    "answer": "Agedashi tofu is silken tofu dusted with starch, deep fried until golden brown, then served in a hot tentsuyu broth made of dashi, mirin, and shoyu, often with green onions or grated daikon."
+  },
+  {
+    "query": "What is daifuku?",
+    "answer": "Daifuku is a Japanese confection consisting of a small round mochi stuffed with sweet filling, most commonly anko, sweetened red bean paste made from azuki beans."
+  },
+  {
+    "query": "What is Naporitan (napolitan)?",
+    "answer": "Naporitan is the name of a pasta dish popular in Japan; it is claimed to originate from Yokohama and typically uses ingredients such as ketchup with spaghetti."
+  },
+  {
+    "query": "What does yakiniku refer to in Japanese cooking?",
+    "answer": "Yakiniku is a Japanese term referring broadly to grilled or barbecued meat dishes."
+  },
+  {
+    "query": "What does kinpira-style cooking mean?",
+    "answer": "Kinpira is a Japanese cooking term that roughly translates to sauté and simmer, aiming to cook root vegetables tenderly in a minimum amount of water."
+  },
+  {
+    "query": "What is makizushi?",
+    "answer": "Makizushi is a variety of sushi made by layering nori, seasoned sushi rice, and fillings, before rolling up and slicing into individual pieces."
+  },
+  {
+    "query": "What is umeboshi?",
+    "answer": "Umeboshi is pickled Japanese plum; it is one of the Japanese traditional foods and its taste ranges from sour to sweet."
+  },
+  {
+    "query": "What is inarizushi?",
+    "answer": "Inarizushi encloses sushi rice and filling in a pocket made of paper-thin omelet, fried tofu, or a cabbage leaf."
+  },
+  {
+    "query": "What is a baozi?",
+    "answer": "A baozi is a type of steamed, filled bun or bread-like item in Chinese cuisine; it is similar to mantou but has filling and can be eaten at any meal."
+  },
+  {
+    "query": "What is congee?",
+    "answer": "Congee is a type of rice porridge eaten across Asia; it may also be called juk, zhou, ganji, or other similar variations."
+  },
+  {
+    "query": "How does authentic chow mein differ from many Westernized versions?",
+    "answer": "Chow mein is a generic Chinese term for stir-fried noodles; authentic chow mein is generally made of soft noodles, whereas Westernized chow mein may also be made from thin crispy noodles."
+  },
+  {
+    "query": "What is hot and sour soup in American Chinese restaurants?",
+    "answer": "Hot and sour soup is a popular soup served at Chinese restaurants in the United States, typically with chicken stock, vinegar, pepper, meat, mushrooms, bamboo shoots, tofu, and egg ribbons."
+  },
+  {
+    "query": "What does the Wikibooks recipe say about General Tso's chicken and General Tso?",
+    "answer": "Stories of the recipe's heritage involving Zuo Zongtang (General Tso) are probably apocryphal, and it is more likely a dish based on similar Hunanese recipes, invented to please the American diner."
+  },
+  {
+    "query": "What is hongshao rou?",
+    "answer": "Hongshao rou (red-cooked meat) is a traditional Chinese pork dish of pork belly in a thick, sweet, dark sauce, simmered a long time to soften the meat."
+  },
+  {
+    "query": "What is bubble tea?",
+    "answer": "Bubble tea is a tea beverage with black tapioca pearls mixed in."
+  },
+  {
+    "query": "Where does dalgona coffee come from?",
+    "answer": "Dalgona coffee is a refreshing cold drink originating from South Korea."
+  },
+  {
+    "query": "How is dalgona coffee made at home?",
+    "answer": "Put instant coffee and sugar in a bowl, gradually add warm water while whipping with a hand mixer, then pour milk in a cup with ice and add the whipped cream on top."
+  },
+  {
+    "query": "What is niku jaga?",
+    "answer": "Niku jaga (meaning meat and potatoes) is a common Japanese household dish of sliced beef, potatoes, onion, and seasonings such as mirin and soy sauce simmered together."
+  },
+  {
+    "query": "Why is real mirin said to matter in niku jaga?",
+    "answer": "Real mirin is important for preventing the potatoes from crumbling apart, especially when using Russets—it contains certain special sugars that prevent over-softening."
+  },
+  {
+    "query": "Should kombu be washed before making dashi, and why?",
+    "answer": "Do not wash the kombu; the white powder on the exterior is natural, crystallized MSG and gives the soup flavour."
+  },
+  {
+    "query": "What is takoyaki?",
+    "answer": "Takoyaki are balls of grilled, savory batter with pieces of octopus inside, now popular throughout Japan and associated with Osaka."
+  },
+  {
+    "query": "How is Hiroshima-style okonomiyaki layered?",
+    "answer": "Hiroshima style is made out of layers of batter, cabbage, toppings, yakisoba and fried egg."
+  },
+  {
+    "query": "What is wanko soba?",
+    "answer": "Wanko soba are soba noodles served in tiny bowls which are re-filled repeatedly (Iwate Prefecture)."
+  },
+  {
+    "query": "Name three Japanese rice dishes that prominently feature eggs.",
+    "answer": "Well-known rice dishes with eggs include oyakodon, omurice and tamago kake gohan."
+  },
+  {
+    "query": "How are traditional Chinese jiaozi pot stickers cooked according to the Wikibooks pot sticker recipe?",
+    "answer": "Pot Stickers or Jiaozi are traditional Chinese dumplings that are both fried and steamed: they are pan-fried then steamed with water until done."
+  },
+  {
+    "query": "What is Chinese red bean paste made from?",
+    "answer": "Red bean paste is made from mashed adzuki beans (known as red beans in Chinese), mixed with sugar."
+  },
+  {
+    "query": "What is the usual shape difference between gyoza wrappers and wonton wrappers?",
+    "answer": "The primary difference between packaged gyôza skins and packaged wonton skins is shape—round for gyôza skins, square for wonton skins."
+  },
+  {
+    "query": "What are egg rolls in Chinese-American cuisine?",
+    "answer": "Egg rolls are a savory Chinese-American fried pastry consisting of a filling wrapped in a wheat flour skin and deep-fried."
+  },
+  {
+    "query": "How does the Wikibooks tea egg recipe cook the eggs after cracking the shells?",
+    "answer": "After boiling eggs for 3 minutes, remove them, roll gently to crack the shell all over, return them to the pot of liquid, reduce to a simmer, and simmer for 1 hour."
+  },
+  {
+    "query": "What are two traditional companions to breakfast congee in Chinese tradition?",
+    "answer": "The two traditional companions to breakfast congee are plain soya sauce chow mein and youtiao."
+  },
+  {
+    "query": "What ingredients are in a California roll?",
+    "answer": "California roll: avocado, crab meat or imitation crab, cucumber."
+  },
+  {
+    "query": "How long should napa cabbage kimchi be refrigerated at minimum before eating in the standard Wikibooks recipe?",
+    "answer": "Refrigerate for 2–3 days at minimum; after a few days you will notice some liquid as the kimchi ripens."
+  },
+  {
+    "query": "What is euneo-juk?",
+    "answer": "Euneojuk is a traditional Korean food that can be translated as sweetfish porridge."
+  },
+  {
+    "query": "What is in a spicy tuna roll?",
+    "answer": "Spicy tuna roll: tuna, spicy sauce (mixture of Japanese mayonnaise and sriracha)."
+  },
+  {
+    "query": "What is gunkanmaki?",
+    "answer": "Gunkanmaki (battleship roll) is a variety of sushi where an oval-shaped piece of sushi rice is wrapped with nori and topped."
+  },
+  {
+    "query": "What is nigiri sushi?",
+    "answer": "Nigiri, or nigirizushi, is a variety of sushi where a topping is placed on a small bed of seasoned sushi rice."
+  },
+  {
+    "query": "What is sushi rice (shari)?",
+    "answer": "Sushi rice consists of short-grain rice dressed with seasoned vinegar called sushisu, then cooled for shaping into sushi."
+  },
+  {
+    "query": "What does the word bento mean and what does a bento box typically do?",
+    "answer": "Bento derives from a word meaning convenient and describes a variety of food, commonly including meat or fish, rice and salad, in a container that keeps them separate."
+  },
+  {
+    "query": "What is the difference between dim sum and yum cha?",
+    "answer": "Dim sum refers to small portions of food served in steamers or on plates, while yum cha is the whole occasion of eating dim sum together with tea—yum cha means drink tea in Cantonese."
+  }
+]

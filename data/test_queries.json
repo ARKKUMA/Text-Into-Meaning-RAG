@@ -1,402 +1,122 @@
 [
   {
     "id": "1",
-    "query": "What are the eight major culinary traditions of Chinese cuisine?"
+    "query": "What is the difference between dim sum and yum cha?"
   },
   {
     "id": "2",
-    "query": "Which Chinese regional cuisine is most famous for its 'málà' flavor profile?"
-  },
-  {
-    "id": "3",
-    "query": "What specific ingredient creates the numbing sensation characteristic of Sichuan cuisine?"
-  },
-  {
-    "id": "4",
-    "query": "What are the fundamental ingredients used to make traditional Japanese dashi (soup stock)?"
-  },
-  {
-    "id": "5",
-    "query": "In Japanese culinary tradition, what is 'Kaiseki'?"
-  },
-  {
-    "id": "6",
-    "query": "What is the primary staple grain consumed in Korean cuisine?"
-  },
-  {
-    "id": "7",
-    "query": "What are 'banchan' in the context of a Korean meal?"
-  },
-  {
-    "id": "8",
-    "query": "What is the main composition of traditional Mongolian cuisine due to its extreme continental climate?"
-  },
-  {
-    "id": "9",
-    "query": "What is Khorkhog?"
-  },
-  {
-    "id": "10",
-    "query": "In Taiwanese cuisine, what specific type of starch is used to make the 'bubbles' or 'boba' in bubble tea?"
-  },
-  {
-    "id": "11",
-    "query": "What is a defining characteristic of Hakka cuisine?"
-  },
-  {
-    "id": "12",
-    "query": "How is Dim Sum traditionally served and consumed?"
-  },
-  {
-    "id": "13",
-    "query": "What does 'Char siu' refer to in Cantonese cooking?"
-  },
-  {
-    "id": "14",
-    "query": "What is Awamori and where does it originate?"
-  },
-  {
-    "id": "15",
-    "query": "How does Okinawan cuisine significantly differ from mainland Japanese cuisine?"
-  },
-  {
-    "id": "16",
-    "query": "What is Korean Doenjang?"
-  },
-  {
-    "id": "17",
-    "query": "What is the traditional method for making the Korean alcoholic beverage Makgeolli?"
-  },
-  {
-    "id": "18",
-    "query": "What is 'Yoshoku' in the history of Japanese food?"
-  },
-  {
-    "id": "19",
-    "query": "What is the technical difference between sushi and sashimi?"
-  },
-  {
-    "id": "20",
-    "query": "Which Chinese cuisine is particularly known for its sweet and light flavors, with an emphasis on braising and stewing techniques?"
-  },
-  {
-    "id": "21",
-    "query": "What is 'Itameshi'?"
-  },
-  {
-    "id": "22",
-    "query": "What ingredients are strictly forbidden in Korean temple cuisine?"
-  },
-  {
-    "id": "23",
-    "query": "What is 'tsampa' in Tibetan culture?"
-  },
-  {
-    "id": "24",
-    "query": "What are the common ingredients featured heavily in Uyghur cuisine?"
-  },
-  {
-    "id": "25",
-    "query": "What is a popular Hong Kong street food made from a sweet, egg-rich batter cooked in a special heated griddle?"
-  },
-  {
-    "id": "26",
-    "query": "According to typical Wikibooks recipes for Japanese Onigiri, what must the cook do to their hands before shaping the rice?"
-  },
-  {
-    "id": "27",
-    "query": "What type of noodles are required when making Spicy Miso Udon based on traditional recipes?"
-  },
-  {
-    "id": "28",
-    "query": "What is the primary characteristic of the traditional Korean dining setup for Gogigui (Korean barbecue)?"
-  },
-  {
-    "id": "29",
-    "query": "What are the key components of a classic Gochujang paste?"
-  },
-  {
-    "id": "30",
-    "query": "How is Wonton noodle soup typically served in Hong Kong cuisine?"
-  },
-  {
-    "id": "31",
-    "query": "What is tempura in Japanese cuisine?"
-  },
-  {
-    "id": "32",
-    "query": "What is tonkotsu ramen?"
-  },
-  {
-    "id": "33",
-    "query": "What does the Korean word 'bulgogi' mean, and how is the dish prepared?"
-  },
-  {
-    "id": "34",
-    "query": "Why is Peking duck famous, and how is its skin prepared?"
-  },
-  {
-    "id": "35",
-    "query": "What is xiaolongbao?"
-  },
-  {
-    "id": "36",
-    "query": "What is tteokbokki in Korean cuisine?"
-  },
-  {
-    "id": "37",
-    "query": "What does 'bibimbap' mean, and how is the dish typically eaten?"
-  },
-  {
-    "id": "38",
-    "query": "What is kimchi?"
-  },
-  {
-    "id": "39",
-    "query": "What are the main components of gimbap?"
-  },
-  {
-    "id": "40",
-    "query": "What is shabu-shabu?"
-  },
-  {
-    "id": "41",
-    "query": "When is miso soup traditionally served in Japanese cuisine?"
-  },
-  {
-    "id": "42",
-    "query": "What is gyudon?"
-  },
-  {
-    "id": "43",
-    "query": "How does sukiyaki relate to shabu-shabu?"
-  },
-  {
-    "id": "44",
-    "query": "What are banchan in a Korean meal?"
-  },
-  {
-    "id": "45",
-    "query": "What is natto?"
-  },
-  {
-    "id": "46",
-    "query": "Which drink is considered the usual choice with sushi in Japanese tradition?"
-  },
-  {
-    "id": "47",
-    "query": "What seasonings and pastes are especially common in Korean cooking?"
-  },
-  {
-    "id": "48",
-    "query": "How are Korean jeongol and jjigae related to hot pot?"
-  },
-  {
-    "id": "49",
-    "query": "What is tebasaki in Nagoya cuisine?"
-  },
-  {
-    "id": "50",
-    "query": "What is kishimen?"
-  },
-  {
-    "id": "51",
-    "query": "What does the name okonomiyaki mean in Japanese?"
-  },
-  {
-    "id": "52",
-    "query": "What are the main ingredients in a basic okonomiyaki batter?"
-  },
-  {
-    "id": "53",
-    "query": "What is onigiri?"
-  },
-  {
-    "id": "54",
-    "query": "Name several common fillings used inside onigiri."
-  },
-  {
-    "id": "55",
-    "query": "Why must onigiri be made with Japanese-style short-grain rice?"
-  },
-  {
-    "id": "56",
-    "query": "What is tonkatsu?"
-  },
-  {
-    "id": "57",
-    "query": "What kind of bread crumbs are traditionally used to coat tonkatsu?"
-  },
-  {
-    "id": "58",
-    "query": "What is kung pao chicken?"
-  },
-  {
-    "id": "59",
-    "query": "Which Chinese province is mapo tofu traditionally associated with?"
-  },
-  {
-    "id": "60",
-    "query": "What sensation does Szechuan pepper add to mapo tofu compared to chili heat?"
-  },
-  {
-    "id": "61",
-    "query": "What are potstickers and how did they get their English name?"
-  },
-  {
-    "id": "62",
-    "query": "What is agedashi tofu?"
-  },
-  {
-    "id": "63",
-    "query": "What is daifuku?"
-  },
-  {
-    "id": "64",
-    "query": "What is Naporitan (napolitan)?"
-  },
-  {
-    "id": "65",
-    "query": "What does yakiniku refer to in Japanese cooking?"
-  },
-  {
-    "id": "66",
-    "query": "What does kinpira-style cooking mean?"
-  },
-  {
-    "id": "67",
-    "query": "What is makizushi?"
-  },
-  {
-    "id": "68",
-    "query": "What is umeboshi?"
-  },
-  {
-    "id": "69",
-    "query": "What is inarizushi?"
-  },
-  {
-    "id": "70",
-    "query": "What is a baozi?"
-  },
-  {
-    "id": "71",
-    "query": "What is congee?"
-  },
-  {
-    "id": "72",
-    "query": "How does authentic chow mein differ from many Westernized versions?"
-  },
-  {
-    "id": "73",
-    "query": "What is hot and sour soup in American Chinese restaurants?"
-  },
-  {
-    "id": "74",
-    "query": "What does the Wikibooks recipe say about General Tso's chicken and General Tso?"
-  },
-  {
-    "id": "75",
-    "query": "What is hongshao rou?"
-  },
-  {
-    "id": "76",
-    "query": "What is bubble tea?"
-  },
-  {
-    "id": "77",
-    "query": "Where does dalgona coffee come from?"
-  },
-  {
-    "id": "78",
-    "query": "How is dalgona coffee made at home?"
-  },
-  {
-    "id": "79",
-    "query": "What is niku jaga?"
-  },
-  {
-    "id": "80",
-    "query": "Why is real mirin said to matter in niku jaga?"
-  },
-  {
-    "id": "81",
-    "query": "Should kombu be washed before making dashi, and why?"
-  },
-  {
-    "id": "82",
-    "query": "What is takoyaki?"
-  },
-  {
-    "id": "83",
-    "query": "How is Hiroshima-style okonomiyaki layered?"
-  },
-  {
-    "id": "84",
-    "query": "What is wanko soba?"
-  },
-  {
-    "id": "85",
-    "query": "Name three Japanese rice dishes that prominently feature eggs."
-  },
-  {
-    "id": "86",
-    "query": "How are traditional Chinese jiaozi pot stickers cooked according to the Wikibooks pot sticker recipe?"
-  },
-  {
-    "id": "87",
-    "query": "What is Chinese red bean paste made from?"
-  },
-  {
-    "id": "88",
-    "query": "What is the usual shape difference between gyoza wrappers and wonton wrappers?"
-  },
-  {
-    "id": "89",
-    "query": "What are egg rolls in Chinese-American cuisine?"
-  },
-  {
-    "id": "90",
-    "query": "How does the Wikibooks tea egg recipe cook the eggs after cracking the shells?"
-  },
-  {
-    "id": "91",
-    "query": "What are two traditional companions to breakfast congee in Chinese tradition?"
-  },
-  {
-    "id": "92",
-    "query": "What ingredients are in a California roll?"
-  },
-  {
-    "id": "93",
-    "query": "How long should napa cabbage kimchi be refrigerated at minimum before eating in the standard Wikibooks recipe?"
-  },
-  {
-    "id": "94",
-    "query": "What is euneo-juk?"
-  },
-  {
-    "id": "95",
-    "query": "What is in a spicy tuna roll?"
-  },
-  {
-    "id": "96",
-    "query": "What is gunkanmaki?"
-  },
-  {
-    "id": "97",
-    "query": "What is nigiri sushi?"
-  },
-  {
-    "id": "98",
-    "query": "What is sushi rice (shari)?"
-  },
-  {
-    "id": "99",
     "query": "What does the word bento mean and what does a bento box typically do?"
   },
   {
-    "id": "100",
-    "query": "What is the difference between dim sum and yum cha?"
+    "id": "3",
+    "query": "What is sushi rice (shari)?"
+  },
+  {
+    "id": "4",
+    "query": "What is nigiri sushi?"
+  },
+  {
+    "id": "5",
+    "query": "What is gunkanmaki?"
+  },
+  {
+    "id": "6",
+    "query": "What is in a spicy tuna roll?"
+  },
+  {
+    "id": "7",
+    "query": "What ingredients are in a California roll?"
+  },
+  {
+    "id": "8",
+    "query": "What are two traditional companions to breakfast congee in Chinese tradition?"
+  },
+  {
+    "id": "9",
+    "query": "What is takoyaki?"
+  },
+  {
+    "id": "10",
+    "query": "What is congee?"
+  },
+  {
+    "id": "11",
+    "query": "What is euneo-juk?"
+  },
+  {
+    "id": "12",
+    "query": "What are egg rolls in Chinese-American cuisine?"
+  },
+  {
+    "id": "13",
+    "query": "What is Chinese red bean paste made from?"
+  },
+  {
+    "id": "14",
+    "query": "Name three Japanese rice dishes that prominently feature eggs."
+  },
+  {
+    "id": "15",
+    "query": "What is wanko soba?"
+  },
+  {
+    "id": "16",
+    "query": "How is Hiroshima-style okonomiyaki layered?"
+  },
+  {
+    "id": "17",
+    "query": "What is niku jaga?"
+  },
+  {
+    "id": "18",
+    "query": "Where does dalgona coffee come from?"
+  },
+  {
+    "id": "19",
+    "query": "What is bubble tea?"
+  },
+  {
+    "id": "20",
+    "query": "What is hongshao rou?"
+  },
+  {
+    "id": "21",
+    "query": "How long should napa cabbage kimchi be refrigerated at minimum before eating in the standard Wikibooks recipe?"
+  },
+  {
+    "id": "22",
+    "query": "How does the Wikibooks tea egg recipe cook the eggs after cracking the shells?"
+  },
+  {
+    "id": "23",
+    "query": "What is the usual shape difference between gyoza wrappers and wonton wrappers?"
+  },
+  {
+    "id": "24",
+    "query": "How are traditional Chinese jiaozi pot stickers cooked according to the Wikibooks pot sticker recipe?"
+  },
+  {
+    "id": "25",
+    "query": "Why is real mirin said to matter in niku jaga?"
+  },
+  {
+    "id": "26",
+    "query": "Should kombu be washed before making dashi, and why?"
+  },
+  {
+    "id": "27",
+    "query": "How is dalgona coffee made at home?"
+  },
+  {
+    "id": "28",
+    "query": "What does the Wikibooks recipe say about General Tso's chicken and General Tso?"
+  },
+  {
+    "id": "29",
+    "query": "Why must onigiri be made with Japanese-style short-grain rice?"
+  },
+  {
+    "id": "30",
+    "query": "According to typical Wikibooks recipes for Japanese Onigiri, what must the cook do to their hands before shaping the rice?"
   }
 ]
