@@ -5,7 +5,9 @@ Input / output conform to the payload schema:
   Input:  {"queries": [{"query_id": "0", "query": "..."}]}
   Output: {"results": [{"query_id": "0", "query": "...",
                          "response": "",
-                         "retrieved_context": [{"doc_id": "000", "text": "..."}]}]}
+                         "retrieved_context": [{"doc_id": <chunk_id>,
+                                                "vector_id": <vector_id>,
+                                                "text": "..."}]}]}
 """
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -119,12 +121,21 @@ class RetrievalPipeline:
         Input:  {"queries": [{"query_id": "0", "query": "..."}]}
         Output: {"results": [{"query_id": "0", "query": "...",
                                "response": "",
-                               "retrieved_context": [...]}]}
+                               "retrieved_context": [{"doc_id": <chunk_id>,
+                                                       "vector_id": <vector_id>,
+                                                       "text": "..."}]}]}
         """
         results = []
         for item in payload["queries"]:
             hits = self.retrieve(item["query"])
-            context = [{"doc_id": h["doc_id"], "text": h["text"]} for h in hits]
+            context = [
+                {
+                    "doc_id": h["chunk_id"],
+                    "vector_id": h["vector_id"],
+                    "text": h["text"],
+                }
+                for h in hits
+            ]
             results.append(
                 {
                     "query_id": item["query_id"],
