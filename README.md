@@ -8,7 +8,7 @@ This repo mainly contains:
 
 - **Experiment Source Code:** `./chunking`, `./embedding`,  `./retrieval`, `./generation`, and  `./evaluation`
 - **Corpus JSONL, and Web Crawler:** `./corpus/*.jsonl`, `corpus/east-asian-corpus-builder`
-- **Benchmark for Inference Demo: ** `./benchmark/`
+- **Benchmark for Inference Demo:** `./benchmark/`
 - **Chunked Files and FAISS Vector Base:** `./artifacts/`
 
 ## Highlights
@@ -26,24 +26,12 @@ This repo mainly contains:
 - Python 3.11 recommended.
 - Optional GPU for faster embedding and generation.
 
-`requirements.txt`:
-
-```txt
-numpy
-faiss-cpu
-sentence-transformers
-transformers
-accelerate
-torch
-rank-bm25
-bert-score
-scikit-learn
-jupyter
-ipykernel
-tqdm
+```bash
+conda create -n <env_name> python=3.11 	# Init a conda environment with python 3.11
+conda activate <env_name> 			   	# Activate the created environment
+cd <REPO_ROOT>							# Change directory to the root of this repo
+pip install -r requirements.txt			# Install required packages with Pip
 ```
-
-Install dependencies with `pip install -r requirements.txt`.
 
 **Notes:**
 
